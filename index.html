@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planning Poker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="login-screen">
+        <h1>Planning Poker</h1>
+        <input type="text" id="create-username" placeholder="Enter your name">
+        <div class="toggle-container">
+            <label class="switch">
+                <input type="checkbox" id="voter-toggle" checked>
+                <span class="slider"></span>
+            </label>
+            <span>Join as Voter</span>
+        </div>
+        <button onclick="createRoom()">Create Room</button>
+    </div>
+
+    <div id="join-screen">
+        <h1 id="join-room-header">Join Room:</h1>
+        <input type="text" id="join-username" placeholder="Enter your name">
+        <button onclick="joinRoom()">Join Room</button>
+    </div>
+
+    <div id="game-screen" style="display: none;">
+        <h1 id="user-display">User</h1>
+        <h2>Room: <span id="room-display"></span></h2>
+        <button onclick="copyInviteLink()">Copy Invite Link</button>
+        <div id="scrum-master-controls" style="display: none;">
+            <textarea id="story-input" placeholder="Enter user story"></textarea>
+            <button id="start-voting-button" onclick="startVoting()">Start Voting</button>
+        </div>
+        <div id="voting-section">
+            <h3>Choose your estimate:</h3>
+            <div id="cards"></div>
+        </div>
+        <button id="reveal-votes-button" onclick="revealVotes()" disabled>Reveal Votes</button>
+        <div id="current-story">
+            <h3>Current Story:</h3>
+            <p id="story-content">Waiting for story...</p>
+        </div>
+        <div id="players-list">
+            <h3>Players in Room:</h3>
+            <ul id="players"></ul>
+        </div>
+        <div id="results-section"></div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
