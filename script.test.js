@@ -76,13 +76,6 @@ describe('Planning Poker', () => {
         dom.window.close();
     });
 
-    test.skip('init function should set up the initial state and socket listeners', () => {
-        expect(mockSocket.on).toHaveBeenCalledWith('players_update', expect.any(Function));
-        expect(mockSocket.on).toHaveBeenCalledWith('votes_revealed', expect.any(Function));
-        expect(mockSocket.on).toHaveBeenCalledWith('voting_started', expect.any(Function));
-        expect(mockSocket.on).toHaveBeenCalledWith('voting_cancelled', expect.any(Function));
-    });
-
     test('createRoom should emit join event with correct parameters', () => {
         document.getElementById('create-username').value = 'testUser';
         document.getElementById('voter-toggle').checked = true;
@@ -111,9 +104,10 @@ describe('Planning Poker', () => {
         });
     });
 
-    test.skip('startVoting should emit start_voting event with correct parameters', () => {
+    test('startVoting should emit start_voting event with correct parameters', () => {
         document.getElementById('story-input').value = 'Test Story';
         document.getElementById('room-display').textContent = '1234';
+        document.getElementById('start-voting-button').textContent = 'Start Voting';
 
         startVoting();
 
