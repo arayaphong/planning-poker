@@ -8,6 +8,7 @@ module.exports = {
     collectCoverageFrom: [
         '*.js',
         '!dom.js',
-        '!*.test.js'
+        '!*.test.js',
+        '!*.config.js'
     ]
 };

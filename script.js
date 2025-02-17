@@ -268,12 +268,14 @@ function revealVotes() {
 window.onload = init;
 
 // Export functions for testing
-module.exports = {
-    createRoom,
-    joinRoom,
-    startVoting,
-    vote,
-    revealVotes,
-    init,
-    state
-};
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        createRoom,
+        joinRoom,
+        startVoting,
+        vote,
+        revealVotes,
+        init,
+        state
+    };
+}
